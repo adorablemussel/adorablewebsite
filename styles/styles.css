@@ -13,11 +13,6 @@ body {
 
 /* Media Query - Responsywność */
 @media (max-width: 768px) {
-    * {
-        box-sizing: border-box;
-    }
-
-    /* HEADER */
     .logo-link {
         position: absolute; /* Absolutne pozycjonowanie logo w kontenerze */
         left: 50%; /* Ustawienie środka logo na 50% szerokości */
@@ -43,14 +38,10 @@ body {
         display: none !important;
     }
 
-    .navigation-bar .menu-icon {
-        display: block;
-    }
-
+    .navigation-bar .menu-icon,
     .navigation-side {
         display: block !important;
     }
-    
 
     /* SECTION */
     .text-overlay {
@@ -71,10 +62,9 @@ body {
     }
 }
 
-
 /* Extra small screens */
 @media (max-width: 480px) {
-    
+    /* Add specific styles for extra small screens if needed */
 }
 
 /* Extra small screens */
@@ -82,7 +72,7 @@ body {
     .menu-icon {
         display: none !important;
     }
-    .navigation-bar{
+    .navigation-bar {
         padding: 25px !important;
     }
 }
