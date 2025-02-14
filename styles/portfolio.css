@@ -1,0 +1,14 @@
+.portfolio-item {
+    margin: 20px;
+    text-align: center;
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.portfolio-item h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}

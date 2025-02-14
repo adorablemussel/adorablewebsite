@@ -1,0 +1,12 @@
+{
+  "name": "adorablewebsite",
+  "version": "1.0.0",
+  "main": "scripts/server.js",
+  "scripts": {
+    "start": "node scripts/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.7.0"
+  }
+}
