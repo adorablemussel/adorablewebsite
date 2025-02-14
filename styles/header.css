@@ -1,10 +1,12 @@
 /* HEADER */
 header {
-    /* background-color: lightblue; */
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 999;
-    transition: transform 0.3s ease-in-out;
+    background-color: #fafafa; /* Pełny kolor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Cień dla lepszej widoczności */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* Pełna szerokość dla announcement i navigation-bar */
@@ -24,13 +26,12 @@ header {
 
 /* Tło navigation-bar */
 .navigation-bar {
-    background-color: #f7f7f7;
+    background-color: transparent; /* Przezroczyste tło */
     padding: 8px;
 }
 
 /* Kontener, aby centrować treść */
 .container {
-    /* background-color: yellow; */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -41,23 +42,19 @@ header {
 
 /* Logo */
 .logo-link {
-    /* background-color: rgb(63, 97, 170); */
     text-decoration: none;
     color: rgb(82, 82, 82);
     padding: 0 10px;
 }
 
 .logo-link:hover {
-    /* background-color: lightgrey; */
     transform: scale(1.01); /* Powiększenie */
-    color: rgb(62, 62, 62);
+    color: rgb(32, 32, 32);
     font-weight: normal;
     display: inline-block;
-    /* transition: color 0s, transform 0.1s; */
 }
 
 .logo {
-    /* background-color: grey; */
     display: flex;
     flex-direction: column;
     line-height: 0px;
@@ -66,14 +63,12 @@ header {
 }
 
 .logo h1 {
-    /* background-color: lightgrey; */
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 15px;
 }
 
 .logo h2 {
-    /* background-color: lightgrey; */
     font-weight: lighter;
     letter-spacing: 3px;
     font-size: 9.5px;
@@ -81,7 +76,6 @@ header {
 
 /* Nawigacja */
 .navigation-bar ul.navigation {
-    /* background-color: lightgrey; */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -89,30 +83,24 @@ header {
 }
 
 .navigation-bar ul.navigation li {
-    /* background-color: grey; */
     margin: 10px;
     padding: 0;
 }
 
 .navigation-bar ul.navigation li a {
-    /* background-color: aqua; */
     padding: 10px 5px;
     text-decoration: none;
     color: rgb(82, 82, 82);
     font-weight: normal;
     display: inline-block;
-    /* transition: color 0s, transform 0.1s; */
 }
 
 .navigation-bar ul.navigation li a:hover {
-    /* background-color: lightgrey; */
     transform: scale(1.03); /* Powiększenie */
-    color: rgb(62, 62, 62);
+    color: rgb(32, 32, 32);
 }
 
-
 .menu-icon {
-    /* background-color: lightgrey; */
     display: none;
     padding: 10px;
     margin: 0 15px;
@@ -129,8 +117,6 @@ header {
     width: 20px;
     height: 14px;
 }
-
-
 
 /* Navigacja boczna */
 .navigation-side {
@@ -151,7 +137,6 @@ header {
 }
 
 .navigation-side ul {
-    /* background-color: lightgrey; */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -160,24 +145,20 @@ header {
 }
 
 .navigation-side ul li {
-    /* background-color: grey; */
     margin: 10px;
     padding: 0;
 }
 
 .navigation-side ul li a {
-    /* background-color: aqua; */
     padding: 10px 5px;
     text-decoration: none;
     color: rgb(82, 82, 82);
     font-weight: normal;
     font-size: 18px;
     display: inline-block;
-    /* transition: color 0s, transform 0.1s; */
 }
 
 .navigation-side ul li a:hover {
-    /* background-color: lightgrey; */
     transform: scale(1.03); /* Powiększenie */
     color: rgb(62, 62, 62);
 }
