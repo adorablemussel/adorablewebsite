@@ -11,30 +11,6 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Media Query - Responsywność */
-@media (max-width: 768px) {
-    /* 
-    SECTION 
-    dotyczy: home, about
-    */
-    .text-overlay {
-        flex-direction: column;
-        padding: 20px;
-        margin: 16px;
-        gap: 20px;
-    }
-
-    .text-overlay img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .text-overlay .text {
-        max-width: 100%;
-        text-align: left;
-    }
-}
-
 /* Extra small screens */
 @media (max-width: 480px) {
     /* Add specific styles for extra small screens if needed */

@@ -52,16 +52,5 @@ section {
     max-width: 500px;
 }
 
-/* Media queries for smaller devices */
-@media (max-width: 768px) {
-    .text-overlay {
-        padding: 20px;
-        margin: 16px;
-        gap: 20px;
-    }
 
-    .text-overlay .text {
-        max-width: 100%;
-    }
-}
 
