@@ -1,12 +1,16 @@
 /* HEADER */
 header {
-    position: fixed;
-    top: 0;
+    position: relative; /* Changed from fixed to relative */
     width: 100%;
     z-index: 999;
     background-color: #fafafa; /* Pełny kolor */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Cień dla lepszej widoczności */
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+header.home {
+    position: fixed;
+    top: 0;
 }
 
 /* Pełna szerokość dla announcement i navigation-bar */
