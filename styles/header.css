@@ -1,6 +1,7 @@
 /* HEADER */
 header {
-    position: relative; /* Changed from fixed to relative */
+    position: fixed; /* Changed from relative to fixed */
+    top: 0;
     width: 100%;
     z-index: 999;
     background-color: #fafafa; /* Pełny kolor */
@@ -8,9 +9,17 @@ header {
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+body {
+    padding-top: 97px; /* Adjust this value based on the height of the header */
+}
+
 header.home {
     position: fixed;
     top: 0;
+}
+
+body.home {
+    padding-top: 0;
 }
 
 /* Pełna szerokość dla announcement i navigation-bar */
@@ -169,6 +178,9 @@ header.home {
 
 /* Media Query - Responsywność */
 @media (max-width: 768px) {
+    body {
+        padding-top: 72px; /* Adjust this value based on the height of the header */
+    }
     .logo-link {
         position: absolute; /* Absolutne pozycjonowanie logo w kontenerze */
         left: 50%; /* Ustawienie środka logo na 50% szerokości */
