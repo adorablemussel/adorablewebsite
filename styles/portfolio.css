@@ -1,14 +1,67 @@
-.portfolio-item {
-    margin: 20px;
-    text-align: center;
+/* Base styles for large screens */
+section {
+    width: 100vw;
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+    overflow-x: hidden;
 }
 
-.portfolio-item img {
-    max-width: 100%;
-    height: auto;
+.background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4e4e4;
+    width: 100%;
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: hidden; /* Prevent horizontal scrolling */
 }
 
-.portfolio-item h3 {
-    margin-top: 10px;
-    font-size: 1.2em;
+.text-overlay {
+    display: flex;
+    flex-direction: column; /* Changed to column for better stacking on small screens */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eeeeee;
+    color: rgb(82, 82, 82);
+    padding: 30px 42px;
+    margin: 32px;
+    z-index: 1;
+    box-sizing: border-box;
+    gap: 42px;
 }
+
+.text-overlay img {
+    width: 100%; /* Make image responsive */
+    max-width: 350px;
+}
+
+.text-overlay .text {
+    margin-top: 0;
+    flex: 1;
+    text-align: justify;
+    word-wrap: break-word;
+    max-width: 500px;
+}
+
+/* Media queries for smaller devices */
+@media (max-width: 768px) {
+    .text-overlay {
+        padding: 20px;
+        margin: 16px;
+        gap: 20px;
+    }
+
+    .text-overlay .text {
+        max-width: 100%;
+    }
+}
+
