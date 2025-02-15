@@ -1,7 +1,7 @@
 /* Base styles for large screens */
 section {
     width: 100vw;
-    height: 100vh; /* Changed to 100vh to always take full window height */
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -16,7 +16,7 @@ section {
     align-items: center;
     background-image: url(../images/Backgrounds/DrawingBG.png);
     width: 100%;
-    height: 100vh; /* Changed to 100vh to always take full window height */
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
     background-position: center;
@@ -27,6 +27,7 @@ section {
 
 .text-overlay {
     display: flex;
+    flex-direction: column; /* Changed to column for better stacking on small screens */
     justify-content: space-between;
     align-items: center;
     background-color: #eeeeee;
@@ -39,7 +40,8 @@ section {
 }
 
 .text-overlay img {
-    width: 350px;
+    width: 100%; /* Make image responsive */
+    max-width: 350px;
 }
 
 .text-overlay .text {
@@ -48,5 +50,18 @@ section {
     text-align: justify;
     word-wrap: break-word;
     max-width: 500px;
+}
+
+/* Media queries for smaller devices */
+@media (max-width: 768px) {
+    .text-overlay {
+        padding: 20px;
+        margin: 16px;
+        gap: 20px;
+    }
+
+    .text-overlay .text {
+        max-width: 100%;
+    }
 }
 

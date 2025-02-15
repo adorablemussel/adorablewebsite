@@ -162,3 +162,36 @@ header {
     transform: scale(1.03); /* Powiększenie */
     color: rgb(62, 62, 62);
 }
+
+/* Media Query - Responsywność */
+@media (max-width: 768px) {
+    .logo-link {
+        position: absolute; /* Absolutne pozycjonowanie logo w kontenerze */
+        left: 50%; /* Ustawienie środka logo na 50% szerokości */
+        transform: translateX(-50%); /* Przesunięcie o połowę szerokości logo */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1; /* Ustawienie z-index wyżej niż inne elementy */
+    }
+    /* Efekt hover dla logo */
+    .logo-link:hover {
+        transform: translateX(-50%) scale(1.01) !important; /* Powiększenie przy hover */
+    }
+    .navigation-bar .container {
+        padding-inline: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative; /* Ustawienie pozycji dla wyśrodkowania logo */
+    }
+
+    ul.navigation {
+        display: none !important;
+    }
+
+    .navigation-bar .menu-icon,
+    .navigation-side {
+        display: block !important;
+    }
+}
