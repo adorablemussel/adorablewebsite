@@ -21,13 +21,6 @@ section {
     width: 100%;
     height: 100vh; /* Changed to 100vh to always take full window height */
     position: relative;
-}
-
-.background {
-    background-image: url(../images/Backgrounds/BannerDuskbringer.png);
-}
-
-.drawing-background {
     background-image: url(../images/Backgrounds/DrawingBG.png);
 }
 
