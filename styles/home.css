@@ -30,6 +30,7 @@ section {
     color: rgb(82, 82, 82);
     padding: 30px 42px;
     margin: 32px;
+    line-height: 1.5;
     z-index: 1;
 }
 
