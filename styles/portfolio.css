@@ -15,7 +15,8 @@ section {
     justify-content: center;
     align-items: center;
     background-color: #e4e4e4;
-    width: 100%;
+    width: calc(100% - 16px); /* Adjust width to prevent extending under the scrollbar */
+    height: 100%; /* Ensure it takes the full height */
     min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
@@ -34,46 +35,47 @@ section {
     }
 }
 
+.portfolio-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-grow: 1; /* Ensure it takes the full height of the background */
+    height: 100%; /* Ensure it takes the full height of the background */
+    width: calc(100% - 16px); /* Adjust width to prevent touching the scrollbar */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
 
-.text-overlay {
+.portfolio-layout div {
     display: flex;
-    flex-direction: column; /* Changed to column for better stacking on small screens */
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #eeeeee;
     color: rgb(82, 82, 82);
-    padding: 30px 42px;
-    margin: 32px;
+    margin: 16px;
+    padding: 32px; /* Adjust padding */
+    flex-grow: 1; /* Ensure it takes the full height of the portfolio-layout */
+    min-height: 0; /* Ensure it can shrink if needed */
+    width: calc(100% - 32px); /* Ensure it takes the full width minus margins */
     z-index: 1;
-    box-sizing: border-box;
-    gap: 42px;
+    box-sizing: border-box; /* Ensure each item takes the full height of the portfolio-layout */
 }
 
-.text-overlay img {
-    width: 100%; /* Make image responsive */
-    max-width: 350px;
+@media (max-width: 768px) {
+    .portfolio-layout {
+        grid-template-columns: 1fr; /* Adjust to 1 column on small screens */
+    }
+    .portfolio-layout div {
+        margin: 16px; /* Reduce margin on small screens */
+        padding: 16px; /* Reduce padding on small screens */
+    }
 }
 
-.text-overlay .text {
-    margin-top: 0;
-    line-height: 1.5;
-    flex: 1;
-    text-align: justify;
-    word-wrap: break-word;
-    max-width: 500px;
+.portfolio-layout .Illustration {
+    background-image: url('../images/Art/Thumbnails/thumbnailrouge.png'); /* Corrected to use url() */
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
 }
 
-.instagram-layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.instagram-layout img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 

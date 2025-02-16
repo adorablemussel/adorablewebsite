@@ -15,7 +15,8 @@ section {
     justify-content: center;
     align-items: center;
     background-color: #e4e4e4;
-    width: 100%;
+    width: calc(100% - 16px); /* Adjust width to prevent extending under the scrollbar */
+    height: 100%; /* Ensure it takes the full height */
     min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
