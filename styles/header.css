@@ -181,6 +181,7 @@ body.home {
     body {
         padding-top: 72px; /* Adjust this value based on the height of the header */
     }
+    
     .logo-link {
         position: absolute; /* Absolutne pozycjonowanie logo w kontenerze */
         left: 50%; /* Ustawienie środka logo na 50% szerokości */
