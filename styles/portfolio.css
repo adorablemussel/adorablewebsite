@@ -1,7 +1,7 @@
 /* Base styles for large screens */
 section {
     width: 100vw;
-    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -15,9 +15,8 @@ section {
     justify-content: center;
     align-items: center;
     background-color: #e4e4e4;
-    width: calc(100% - 16px); /* Adjust width to prevent extending under the scrollbar */
-    height: 100%; /* Ensure it takes the full height */
-    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
+    width: 100%;
+    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
     background-position: center;
