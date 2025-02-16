@@ -70,10 +70,15 @@ section {
     }
 }
 
+.portfolio-layout div:hover {
+    transform: scale(1.01); /* Powiększenie */
+}
+
 .portfolio-layout .Illustration {
-    background-image: url('../images/Art/Thumbnails/thumbnailrouge.png'); /* Corrected to use url() */
+    background-image: url('../images/Art/Thumbnails/thumbnailwarrior.png'); /* Corrected to use url() */
     background-size: cover; /* Ensure the image covers the entire div */
     background-position: center; /* Center the image */
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
 }
 
 
