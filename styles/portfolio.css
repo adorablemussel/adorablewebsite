@@ -40,8 +40,9 @@ section {
     grid-template-columns: repeat(3, 1fr);
     flex-grow: 1; /* Ensure it takes the full height of the background */
     height: 100%; /* Ensure it takes the full height of the background */
-    width: calc(100% - 16px); /* Adjust width to prevent touching the scrollbar */
+    width: 100%; /* Adjust width to prevent touching the scrollbar */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 16px; /* Adjust margin */
 }
 
 .portfolio-layout div {
