@@ -60,6 +60,11 @@ section {
     box-sizing: border-box; /* Ensure each item takes the full height of the portfolio-layout */
 }
 
+.portfolio-layout div h3 {
+    background-color: #eeeeee;
+    padding: 16px;
+}
+
 @media (max-width: 768px) {
     .portfolio-layout {
         grid-template-columns: 1fr; /* Adjust to 1 column on small screens */
@@ -75,12 +80,17 @@ section {
 }
 
 .portfolio-layout .Illustration {
-    background-image: url('../images/Art/Thumbnails/thumbnailwarrior.png'); /* Corrected to use url() */
+    background-image: url('../images/Art/Thumbnails/illustration_tb.jpg'); /* Corrected to use url() */
     background-size: cover; /* Ensure the image covers the entire div */
     background-position: center; /* Center the image */
     position: relative; /* Ensure the pseudo-element is positioned correctly */
 }
-
+.portfolio-layout .ConceptArt {
+    background-image: url('../images/Art/Thumbnails/conceptart_tb.jpg'); /* Corrected to use url() */
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+}
 
 
 
