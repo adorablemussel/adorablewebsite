@@ -168,7 +168,8 @@ body.home {
     color: rgb(82, 82, 82);
     font-weight: normal;
     font-size: 18px;
-    display: inline-block;
+    display: block; /* Changed from inline-block to block */
+    width: 100%; /* Make the link stretch to the full width */
 }
 
 .navigation-side ul li a:hover {
