@@ -44,7 +44,7 @@ section {
     padding: 16px; /* Adjust margin */
 }
 
-.portfolio-layout div {
+.portfolio-layout a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,9 +58,10 @@ section {
     width: calc(100% - 32px); /* Ensure it takes the full width minus margins */
     z-index: 1;
     box-sizing: border-box; /* Ensure each item takes the full height of the portfolio-layout */
+    text-decoration: none; /* Remove underline from links */
 }
 
-.portfolio-layout div h3 {
+.portfolio-layout a h3 {
     background-color: #eeeeee;
     padding: 16px;
 }
@@ -69,13 +70,13 @@ section {
     .portfolio-layout {
         grid-template-columns: 1fr; /* Adjust to 1 column on small screens */
     }
-    .portfolio-layout div {
+    .portfolio-layout a {
         margin: 16px; /* Reduce margin on small screens */
         padding: 16px; /* Reduce padding on small screens */
     }
 }
 
-.portfolio-layout div:hover {
+.portfolio-layout a:hover {
     transform: scale(1.01); /* Powiększenie */
 }
 
