@@ -45,7 +45,7 @@ section {
     margin: 32px;
     z-index: 1;
     box-sizing: border-box;
-    gap: 32px;
+    gap: 16px;
 }
 
 .text-overlay img {
