@@ -1,7 +1,7 @@
 /* Base styles for large screens */
 section {
     width: 100vw;
-    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -16,13 +16,22 @@ section {
     align-items: center;
     background-color: #e4e4e4;
     width: 100%;
-    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     overflow-y: hidden; /* Prevent horizontal scrolling */
+}
+
+@media (max-width: 768px) {
+    section {
+        min-height: calc(100vh - 72px);
+    }
+    .background {
+        min-height: calc(100vh - 72px);
+    }
 }
 
 .text-overlay {
@@ -36,7 +45,7 @@ section {
     margin: 32px;
     z-index: 1;
     box-sizing: border-box;
-    gap: 42px;
+    gap: 16px;
 }
 
 .text-overlay img {
@@ -52,6 +61,5 @@ section {
     word-wrap: break-word;
     max-width: 500px;
 }
-
 
 
