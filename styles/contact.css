@@ -1,7 +1,7 @@
 /* Base styles for large screens */
 section {
     width: 100vw;
-    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -16,13 +16,22 @@ section {
     align-items: center;
     background-color: #e4e4e4;
     width: 100%;
-    min-height: 100vh; /* Changed to min-height to ensure it takes at least the full viewport height */
+    min-height: calc(100vh - 97px); /* Changed to min-height to ensure it takes at least the full viewport height */
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     overflow-y: hidden; /* Prevent horizontal scrolling */
+}
+
+@media (max-width: 768px) {
+    section {
+        min-height: calc(100vh - 72px);
+    }
+    .background {
+        min-height: calc(100vh - 72px);
+    }
 }
 
 .text-overlay {
@@ -36,22 +45,41 @@ section {
     margin: 32px;
     z-index: 1;
     box-sizing: border-box;
-    gap: 42px;
 }
 
-.text-overlay img {
-    width: 100%; /* Make image responsive */
-    max-width: 350px;
-}
-
-.text-overlay .text {
-    margin-top: 0;
-    line-height: 1.5;
-    flex: 1;
-    text-align: justify;
-    word-wrap: break-word;
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Układa wszystkie elementy w kolumnie */
+    align-items: center; /* Wyśrodkowanie elementów */
+    gap: 15px; /* Odstęp między elementami */
     max-width: 500px;
+    width: 100%;
 }
 
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999999;
+    opacity: 1; /* Ensure placeholder text is fully opaque */
+}
 
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #525252;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #909090;
+}

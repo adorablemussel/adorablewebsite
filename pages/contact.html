@@ -7,7 +7,7 @@
     <link rel="icon" href="../images/Icons/avatarIcon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/about.css">
+    <link rel="stylesheet" href="../styles/contact.css">
     <link rel="stylesheet" href="../styles/footer.css">
 </head>
 <body>
@@ -59,21 +59,13 @@
     <section>
         <div class="background">
             <div class="text-overlay">
-                <img src="../images/Photos/Photo.png" alt="Photo">
-                <div class="text">
-                    <h3>ABOUT ME</h3>
-                    <p>Hello! My name is Szymon Krzysztofik, I'm a 21-year-old artist from Poland. 
-                        I draw whenever I can, but since I'm currently studying, I don't have as much time for it as I'd wish. 
-                        So What am I studying then? Well, it's Computer Science in Engineering at AGH University in Cracow. 
-                        These studies are some sort of my backup, if I couldn't find a job in the future as an artist; 
-                        but even then I would aim for a tech-artist role or anything related to art.
-                        The truth is that I still don't know what exactly I want to do in the future 
-                        and that's because I’m passionate about so many things... 
-                        traditional drawing, digital painting, 3D modeling, graphic design, computer graphics, game development, comics and so on. 
-                        Besides I'm crazy about art and stuff, sometimes I go on a hike in the mountains with my group of friends, which is also fun. 
-                        That's pretty much all about me.
-                    </p>
-                </div>
+                <h3>CONTACT ME</h3>
+                <form class="contact-form" action="" method="post">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
             </div>
         </div>
     </section>
