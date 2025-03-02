@@ -61,6 +61,10 @@ section {
     max-width: 500px;
 }
 
+img {
+    cursor: pointer; /* Change cursor to pointing finger icon */
+}
+
 /* Modal styles */
 .modal {
     display: none; /* Hidden by default */
@@ -73,11 +77,14 @@ section {
     background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
 }
 
+.modal img {
+    cursor: default; /* Keep default cursor for images inside the modal */
+}
+
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 76%;
+    max-width: 90%;
     max-height: 90vh; /* Ensure the image does not exceed the viewport height */
     object-fit: contain; /* Ensure the image scales properly */
     position: absolute;
@@ -85,7 +92,6 @@ section {
     left: 50%;
     transform: translate(-50%, -50%); /* Center the image */
 }
-
 
 @keyframes zoom {
     from {transform: scale(0)}
