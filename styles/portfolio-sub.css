@@ -52,6 +52,13 @@ section {
     max-height: 600px;
 }
 
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
 .overlay .text {
     line-height: 1.5;
     flex: 1;
