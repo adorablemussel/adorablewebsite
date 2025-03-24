@@ -58,13 +58,20 @@ body.home {
     text-decoration: none;
     color: rgb(82, 82, 82);
     padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-link img {
+    width: 40px;
+    height: 40px;
 }
 
 .logo-link:hover {
-    transform: scale(1.01); /* Powiększenie */
-    color: rgb(32, 32, 32);
+    color: rgb(48, 48, 48);
     font-weight: normal;
-    display: inline-block;
+    transition: 0.5s;
 }
 
 .logo {
@@ -109,7 +116,7 @@ body.home {
 }
 
 .navigation-bar ul.navigation li a:hover {
-    transform: scale(1.03); /* Powiększenie */
+    transform: scale(1.02); /* Powiększenie */
     color: rgb(48, 48, 48);
 }
 
@@ -192,10 +199,7 @@ body.home {
         align-items: center;
         z-index: 1; /* Ustawienie z-index wyżej niż inne elementy */
     }
-    /* Efekt hover dla logo */
-    .logo-link:hover {
-        transform: translateX(-50%) scale(1.01) !important; /* Powiększenie przy hover */
-    }
+    
     .navigation-bar .container {
         padding-inline: 0;
         display: flex;

@@ -78,7 +78,7 @@ section {
 }
 
 .portfolio-layout a:hover {
-    transform: scale(1.01); /* Powiększenie */
+    transform: scale(1.008); /* Powiększenie */
 }
 
 .portfolio-layout .Illustration {
