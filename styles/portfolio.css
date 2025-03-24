@@ -62,6 +62,7 @@ section {
 }
 
 .portfolio-layout a h3 {
+    text-align: center;
     background-color: #eeeeee;
     padding: 16px;
 }
