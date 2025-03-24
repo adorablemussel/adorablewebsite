@@ -42,7 +42,7 @@ section {
     background-color: #eeeeee;
     color: rgb(82, 82, 82);
     padding: 16px 32px;
-    margin: 32px;
+    margin: 16px;
     z-index: 1;
     box-sizing: border-box;
     gap: 16px;
@@ -68,10 +68,18 @@ section {
     box-sizing: border-box;
 }
 
+.text-overlay p {
+    text-align: center;
+    width: 500px;
+}
+
 @media screen and (max-width: 768px) {
     .contact-form input,
     .contact-form textarea {
         min-width: 300px;
+    }
+    .text-overlay p {
+        max-width: 300px;
     }
 }
 
@@ -80,13 +88,22 @@ section {
     .contact-form textarea {
         min-width: 232px;
     }
-    
+    .text-overlay p {
+        max-width: 232px;
+    }
 }
 
 .contact-form textarea {
     resize: none; /* Prevent manual resizing */
     overflow: hidden; /* Hide scrollbar */
     min-height: 100px; /* Set a minimum height */
+    border: 1px solid #cccccc;
+}
+
+.contact-form textarea:focus,
+.contact-form input:focus {
+    border: 1px solid #999999; /* Reduce border thickness on focus */
+    outline: none; /* Remove default outline */
 }
 
 .contact-form input::placeholder,
@@ -105,5 +122,5 @@ section {
 }
 
 .contact-form button:hover {
-    background-color: #909090;
+    background-color: rgb(32, 32, 32);
 }
