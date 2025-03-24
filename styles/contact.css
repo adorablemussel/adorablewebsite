@@ -47,6 +47,13 @@ section {
     box-sizing: border-box;
     gap: 16px;
 }
+.contact{
+    margin-top: 32px;
+}
+
+.info {
+    margin-bottom: 32px;
+}
 
 .contact-form {
     display: flex;
