@@ -34,6 +34,10 @@ section {
     z-index: 1;
 }
 
+.text-overlay a {
+    color: rgb(82, 82, 82);
+}
+
 /* CANVAS */
 .drawing-board {
     position: absolute;
