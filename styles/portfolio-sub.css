@@ -49,6 +49,10 @@ section {
     gap: 16px;
 }
 
+.project {
+    display: grid;
+    gap: 15px;
+}
 
 .overlay img {
     max-width: 100%; /* Make image responsive */
