@@ -15,9 +15,9 @@ padding: 20px 40px;
 text-align: center;
 }
 footer .content {
-display: flex;
+display: grid;
 justify-content: center;
-gap: 30px;
+gap: 10px;
 }
 footer .social-icons {
 text-align: center;
@@ -35,7 +35,6 @@ width: 20px;
 }
 footer .copyright {
 text-align: center;
-margin-top: 20px;
 font-size: 0.6rem;
 color: #aaa;
 }
