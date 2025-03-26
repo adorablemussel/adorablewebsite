@@ -59,7 +59,7 @@ section {
     display: flex;
     flex-direction: column; /* Układa wszystkie elementy w kolumnie */
     align-items: center; /* Wyśrodkowanie elementów */
-    gap: 15px; /* Odstęp między elementami */
+    gap: 16px; /* Odstęp między elementami */
     width: 100%;
 }
 
