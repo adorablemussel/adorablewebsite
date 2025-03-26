@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../../styles/header.css">
     <link rel="stylesheet" href="../../styles/portfolio-sub.css">
     <link rel="stylesheet" href="../../styles/footer.css">
+    <style>
+        .restricted {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     
@@ -61,11 +66,44 @@
         <div class="background">
             <div class="overlay">
                 <div class="text">
-                    <p>not ready yet</p>
+                    <h3>CONCEPT ART</h3>
+                </div>
+                    <!-- STWORZYĆ NOWY DIV DLA PROJEKTÓW I DODAWAĆ OSOBNO DO KAŻDEGO PROJEKTU (PROBLEM ZE STYLEM GAP)-->
+                <div class="restricted">
+                    <div class="images">
+                        <img src="../../images/Art/FullArt/elisajagodatransition.png" class="modal-image">
+                    </div>
+                    <div class="images">
+                        <img src="../../images/Art/FullArt/finaldesign2.png" class="modal-image">
+                    </div>
+                    <div class="images">
+                        <img src="../../images/Art/FullArt/elissadesign.png" class="modal-image">
+                    </div>
+                    <div class="images">
+                        <img src="../../images/Art/FullArt/jagodadesign.png" class="modal-image">
+                    </div>
+                    <div class="text">
+                        <p>Elissa & Jagoda Concept Art</p>
+                    </div>
+                    <hr>
+                </div>
+                <div id="password-form">
+                    <hr>
+                    <label for="password">Restricted content:</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                    <button id="submit-password">Submit</button>
+                    <hr>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div class="modal-caption" id="caption"></div>
+    </div>
     
     <footer>
         <div class="content">
@@ -102,5 +140,7 @@
     </footer>
 
     <script src="../../scripts/main.js"></script>
+    <script src="../../scripts/portfolioModals.js"></script>
+    <script src="../../scripts/restrictedContent.js"></script>
 </body>
 </html>
