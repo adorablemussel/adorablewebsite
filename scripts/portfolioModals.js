@@ -37,14 +37,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalImages = Array.from(document.querySelectorAll('.modal-image'));
     let currentModalIndex = 0;
 
+    // Pomocnicza funkcja do znalezienia i przełączenia projektu w sliderze
+    function activateProjectForImage(img) {
+        const project = img.closest('.project');
+        if (!project) return;
+        const slider = project.closest('.project-slider');
+        if (!slider) return;
+        const projects = Array.from(slider.querySelectorAll('.project'));
+        projects.forEach(p => p.classList.remove('active'));
+        project.classList.add('active');
+    }
+
     // Otwieranie modala i zapamiętanie indeksu
     modalImages.forEach((img, idx) => {
         img.addEventListener('click', function () {
             currentModalIndex = idx;
             modal.style.display = "block";
             modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-            document.body.style.overflow = "hidden"; // Disable scrolling
+            // captionText.innerHTML = this.alt; // podpis wyłączony
+            document.body.style.overflow = "hidden";
+            activateProjectForImage(this); // synchronizuj projekt
         });
     });
 
@@ -54,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
         currentModalIndex = idx;
         const img = modalImages[currentModalIndex];
         document.getElementById('img01').src = img.src;
-        document.getElementById('caption').textContent = img.closest('.project')?.querySelector('.description')?.textContent || '';
+        // document.getElementById('caption').textContent = ...; // podpis wyłączony
+        activateProjectForImage(img); // synchronizuj projekt
     }
 
     // Obsługa przycisków modal-nav
@@ -79,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (touchStartX === null) return;
         const touchEndX = e.changedTouches[0].clientX;
         const dx = touchEndX - touchStartX;
-        if (Math.abs(dx) > 50) { // minimalny dystans do uznania za swipe
+        if (Math.abs(dx) > 50) {
             if (dx > 0) {
-                showModalImage(currentModalIndex - 1); // swipe right
+                showModalImage(currentModalIndex - 1);
             } else {
-                showModalImage(currentModalIndex + 1); // swipe left
+                showModalImage(currentModalIndex + 1);
             }
         }
         touchStartX = null;
