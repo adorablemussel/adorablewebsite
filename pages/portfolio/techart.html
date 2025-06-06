@@ -60,12 +60,52 @@
     <section>
         <div class="background">
             <div class="overlay">
-                <div class="text">
-                    <p>not ready yet</p>
+                <div class="title">
+                    <h3>TECH ART</h3>
+                </div>
+                <div class="project-slider">
+                    <div class="project active">
+                        <div class="images">
+                            <img src="../../images/Art/FullArt/techart1.png" class="modal-image" alt="Example tech art 1">
+                        </div>
+                        <div class="text">
+                            <p>Example Tech Art 1</p>
+                            <hr>
+                            <div class="description">Opis przykładowego projektu tech art.</div>
+                            <div class="project-nav-wrapper">
+                                <button class="project-nav prev" aria-label="Previous project">&#8592;</button>
+                                <button class="project-nav next" aria-label="Next project">&#8594;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="images">
+                            <img src="../../images/Art/FullArt/techart2.png" class="modal-image" alt="Example tech art 2">
+                        </div>
+                        <div class="text">
+                            <p>Example Tech Art 2</p>
+                            <hr>
+                            <div class="description">Opis drugiego przykładowego projektu tech art.</div>
+                            <div class="project-nav-wrapper">
+                                <button class="project-nav prev" aria-label="Previous project">&#8592;</button>
+                                <button class="project-nav next" aria-label="Next project">&#8594;</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div class="modal-caption" id="caption"></div>
+        <div class="modal-nav-wrapper">
+            <button class="modal-nav prev" aria-label="Previous image">&#8592;</button>
+            <button class="modal-nav next" aria-label="Next image">&#8594;</button>
+        </div>
+    </div>
     
     <footer>
         <div class="content">
@@ -102,5 +142,8 @@
     </footer>
 
     <script src="../../scripts/main.js"></script>
+    <script src="../../scripts/projectSlider.js"></script>
+    <script src="../../scripts/portfolioModals.js"></script>
+    <script src="../../scripts/restrictedContent.js"></script>
 </body>
 </html>
