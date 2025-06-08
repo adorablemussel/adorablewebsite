@@ -220,6 +220,10 @@ hr {
     max-width: 100%;
 }
 
+.description strong {
+    font-weight: 600;
+}
+
 img {
     cursor: pointer; /* Change cursor to pointing finger icon */
 }
