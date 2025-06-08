@@ -34,10 +34,11 @@ window.onclick = function(event) {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Zbierz wszystkie obrazy do modala
-    const modalImages = Array.from(document.querySelectorAll('.modal-image'));
+    const allModalImages = Array.from(document.querySelectorAll('.modal-image'));
     let currentModalIndex = 0;
+    let currentSlider = null;
+    let currentSliderImages = [];
 
-    // Pomocnicza funkcja do znalezienia i przełączenia projektu w sliderze
     function activateProjectForImage(img) {
         const project = img.closest('.project');
         if (!project) return;
@@ -48,26 +49,28 @@ document.addEventListener('DOMContentLoaded', function () {
         project.classList.add('active');
     }
 
-    // Otwieranie modala i zapamiętanie indeksu
-    modalImages.forEach((img, idx) => {
+    // Otwieranie modala i zapamiętanie slidera oraz indeksu
+    allModalImages.forEach((img) => {
         img.addEventListener('click', function () {
-            currentModalIndex = idx;
+            currentSlider = img.closest('.project-slider');
+            currentSliderImages = Array.from(currentSlider.querySelectorAll('.modal-image'));
+            currentModalIndex = currentSliderImages.indexOf(img);
+
             modal.style.display = "block";
-            modalImg.src = this.src;
-            // captionText.innerHTML = this.alt; // podpis wyłączony
+            modalImg.src = img.src;
             document.body.style.overflow = "hidden";
-            activateProjectForImage(this); // synchronizuj projekt
+            activateProjectForImage(img);
         });
     });
 
     function showModalImage(idx) {
-        if (idx < 0) idx = modalImages.length - 1;
-        if (idx >= modalImages.length) idx = 0;
+        if (!currentSliderImages.length) return;
+        if (idx < 0) idx = currentSliderImages.length - 1;
+        if (idx >= currentSliderImages.length) idx = 0;
         currentModalIndex = idx;
-        const img = modalImages[currentModalIndex];
+        const img = currentSliderImages[currentModalIndex];
         document.getElementById('img01').src = img.src;
-        // document.getElementById('caption').textContent = ...; // podpis wyłączony
-        activateProjectForImage(img); // synchronizuj projekt
+        activateProjectForImage(img);
     }
 
     // Obsługa przycisków modal-nav
