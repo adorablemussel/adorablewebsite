@@ -3,7 +3,7 @@ export default function handler(req, res) {
         return res.status(405).json({ success: false, message: 'Method not allowed' });
     }
     const { password } = req.body;
-    const CORRECT_PASSWORD = 'adorableConcept';
+    const CORRECT_PASSWORD = process.env.RESTRICTED_PASSWORD;
     if (password === CORRECT_PASSWORD) {
         res.status(200).json({ success: true });
     } else {
