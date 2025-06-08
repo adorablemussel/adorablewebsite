@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     if (password !== CORRECT_PASSWORD) {
         return res.status(403).json({ success: false, message: 'Forbidden' });
     }
-    const imagePath = path.join(process.cwd(), 'private', 'Art', 'FullArt', filename);
+    const imagePath = path.join(process.cwd(), 'images', 'Art', 'FullArt', filename);
     if (!fs.existsSync(imagePath)) {
         return res.status(404).json({ success: false, message: 'Not found' });
     }
