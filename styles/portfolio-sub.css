@@ -263,6 +263,14 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center the image */
+    transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    cursor: zoom-in;
+    /* Usuwamy object-fit: contain, bo transform przejmuje kontrolę */
+}
+
+.modal-content:active,
+.modal-content.grabbing {
+    cursor: grabbing !important;
 }
 
 @keyframes zoom {

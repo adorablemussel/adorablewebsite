@@ -63,6 +63,98 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // --- ZOOM & PAN LOGIC ---
+    let isZoomed = false;
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let lastX = 0, lastY = 0;
+    let dragMoved = false; // <--- Dodane
+    const modalImg = document.getElementById("img01");
+
+    // Reset transform on modal close
+    function resetZoom() {
+        isZoomed = false;
+        isDragging = false;
+        lastX = 0;
+        lastY = 0;
+        dragMoved = false;
+        modalImg.style.transform = "translate(-50%, -50%) scale(1)";
+        modalImg.style.cursor = "zoom-in";
+    }
+
+    // Zoom in/out on click (tylko jeśli nie było drag)
+    modalImg.addEventListener('click', function (e) {
+        if (isZoomed && dragMoved) {
+            // Jeśli był drag, nie oddalaj
+            dragMoved = false;
+            return;
+        }
+        if (!isZoomed) {
+            isZoomed = true;
+            modalImg.style.transform = "translate(-50%, -50%) scale(2)";
+            modalImg.style.cursor = "grab";
+        } else {
+            resetZoom();
+        }
+        e.stopPropagation();
+    });
+
+    // Start dragging
+    modalImg.addEventListener('mousedown', function (e) {
+        if (!isZoomed) return;
+        isDragging = true;
+        dragMoved = false;
+        startX = e.clientX - lastX;
+        startY = e.clientY - lastY;
+        modalImg.style.cursor = "grabbing";
+        e.preventDefault();
+    });
+
+    // Drag move
+    document.addEventListener('mousemove', function (e) {
+        if (!isZoomed || !isDragging) return;
+        lastX = e.clientX - startX;
+        lastY = e.clientY - startY;
+        if (Math.abs(lastX) > 2 || Math.abs(lastY) > 2) dragMoved = true;
+        modalImg.style.transform = `translate(calc(-50% + ${lastX}px), calc(-50% + ${lastY}px)) scale(2)`;
+    });
+
+    // End dragging
+    document.addEventListener('mouseup', function () {
+        if (!isZoomed) return;
+        isDragging = false;
+        modalImg.style.cursor = "grab";
+        // dragMoved zostaje true jeśli był ruch
+    });
+
+    // Touch events for mobile
+    modalImg.addEventListener('touchstart', function (e) {
+        if (!isZoomed) return;
+        if (e.touches.length === 1) {
+            isDragging = true;
+            dragMoved = false;
+            startX = e.touches[0].clientX - lastX;
+            startY = e.touches[0].clientY - lastY;
+        }
+    });
+
+    modalImg.addEventListener('touchmove', function (e) {
+        if (!isZoomed || !isDragging) return;
+        if (e.touches.length === 1) {
+            lastX = e.touches[0].clientX - startX;
+            lastY = e.touches[0].clientY - startY;
+            if (Math.abs(lastX) > 2 || Math.abs(lastY) > 2) dragMoved = true;
+            modalImg.style.transform = `translate(calc(-50% + ${lastX}px), calc(-50% + ${lastY}px)) scale(2)`;
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    modalImg.addEventListener('touchend', function () {
+        if (!isZoomed) return;
+        isDragging = false;
+    });
+
+    // Reset zoom on image change or modal close
     function showModalImage(idx) {
         if (!currentSliderImages.length) return;
         if (idx < 0) idx = currentSliderImages.length - 1;
@@ -71,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const img = currentSliderImages[currentModalIndex];
         document.getElementById('img01').src = img.src;
         activateProjectForImage(img);
+        resetZoom();
     }
 
     // Obsługa przycisków modal-nav
@@ -81,44 +174,17 @@ document.addEventListener('DOMContentLoaded', function () {
         showModalImage(currentModalIndex + 1);
     });
 
-    // Swipe obsługa na urządzeniach dotykowych
-    const modal = document.getElementById('myModal');
-    let touchStartX = null;
-
-    modal.addEventListener('touchstart', function (e) {
-        if (e.touches.length === 1) {
-            touchStartX = e.touches[0].clientX;
-        }
-    });
-
-    modal.addEventListener('touchend', function (e) {
-        if (touchStartX === null) return;
-        const touchEndX = e.changedTouches[0].clientX;
-        const dx = touchEndX - touchStartX;
-        if (Math.abs(dx) > 50) {
-            if (dx > 0) {
-                showModalImage(currentModalIndex - 1);
-            } else {
-                showModalImage(currentModalIndex + 1);
-            }
-        }
-        touchStartX = null;
-    });
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
+    // Zamknij modal i resetuj zoom
     span.onclick = function() {
         modal.style.display = "none";
-        document.body.style.overflowY = "auto"; // Re-enable scrolling
+        document.body.style.overflowY = "auto";
+        resetZoom();
     }
-
-    // When the user clicks anywhere outside of the modal image, close the modal
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
-            document.body.style.overflowY = "auto"; // Re-enable scrolling
+            document.body.style.overflowY = "auto";
+            resetZoom();
         }
     }
 });
