@@ -64,11 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // --- ZOOM & PAN LOGIC ---
+    // Dodaj wykrywanie urządzenia dotykowego
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     let isZoomed = false;
     let isDragging = false;
     let startX = 0, startY = 0;
     let lastX = 0, lastY = 0;
-    let dragMoved = false; // <--- Dodane
+    let dragMoved = false;
     const modalImg = document.getElementById("img01");
 
     // Reset transform on modal close
@@ -82,77 +85,55 @@ document.addEventListener('DOMContentLoaded', function () {
         modalImg.style.cursor = "zoom-in";
     }
 
-    // Zoom in/out on click (tylko jeśli nie było drag)
-    modalImg.addEventListener('click', function (e) {
-        if (isZoomed && dragMoved) {
-            // Jeśli był drag, nie oddalaj
-            dragMoved = false;
-            return;
-        }
-        if (!isZoomed) {
-            isZoomed = true;
-            modalImg.style.transform = "translate(-50%, -50%) scale(2)";
-            modalImg.style.cursor = "grab";
-        } else {
-            resetZoom();
-        }
-        e.stopPropagation();
-    });
+    // Zoom & pan tylko na desktopie
+    if (!isTouchDevice) {
+        // Zoom in/out on click (tylko jeśli nie było drag)
+        modalImg.addEventListener('click', function (e) {
+            if (isZoomed && dragMoved) {
+                // Jeśli był drag, nie oddalaj
+                dragMoved = false;
+                return;
+            }
+            if (!isZoomed) {
+                isZoomed = true;
+                modalImg.style.transform = "translate(-50%, -50%) scale(2)";
+                modalImg.style.cursor = "grab";
+            } else {
+                resetZoom();
+            }
+            e.stopPropagation();
+        });
 
-    // Start dragging
-    modalImg.addEventListener('mousedown', function (e) {
-        if (!isZoomed) return;
-        isDragging = true;
-        dragMoved = false;
-        startX = e.clientX - lastX;
-        startY = e.clientY - lastY;
-        modalImg.style.cursor = "grabbing";
-        e.preventDefault();
-    });
-
-    // Drag move
-    document.addEventListener('mousemove', function (e) {
-        if (!isZoomed || !isDragging) return;
-        lastX = e.clientX - startX;
-        lastY = e.clientY - startY;
-        if (Math.abs(lastX) > 2 || Math.abs(lastY) > 2) dragMoved = true;
-        modalImg.style.transform = `translate(calc(-50% + ${lastX}px), calc(-50% + ${lastY}px)) scale(2)`;
-    });
-
-    // End dragging
-    document.addEventListener('mouseup', function () {
-        if (!isZoomed) return;
-        isDragging = false;
-        modalImg.style.cursor = "grab";
-        // dragMoved zostaje true jeśli był ruch
-    });
-
-    // Touch events for mobile
-    modalImg.addEventListener('touchstart', function (e) {
-        if (!isZoomed) return;
-        if (e.touches.length === 1) {
+        // Start dragging
+        modalImg.addEventListener('mousedown', function (e) {
+            if (!isZoomed) return;
             isDragging = true;
             dragMoved = false;
-            startX = e.touches[0].clientX - lastX;
-            startY = e.touches[0].clientY - lastY;
-        }
-    });
+            startX = e.clientX - lastX;
+            startY = e.clientY - lastY;
+            modalImg.style.cursor = "grabbing";
+            e.preventDefault();
+        });
 
-    modalImg.addEventListener('touchmove', function (e) {
-        if (!isZoomed || !isDragging) return;
-        if (e.touches.length === 1) {
-            lastX = e.touches[0].clientX - startX;
-            lastY = e.touches[0].clientY - startY;
+        // Drag move
+        document.addEventListener('mousemove', function (e) {
+            if (!isZoomed || !isDragging) return;
+            lastX = e.clientX - startX;
+            lastY = e.clientY - startY;
             if (Math.abs(lastX) > 2 || Math.abs(lastY) > 2) dragMoved = true;
             modalImg.style.transform = `translate(calc(-50% + ${lastX}px), calc(-50% + ${lastY}px)) scale(2)`;
-            e.preventDefault();
-        }
-    }, { passive: false });
+        });
 
-    modalImg.addEventListener('touchend', function () {
-        if (!isZoomed) return;
-        isDragging = false;
-    });
+        // End dragging
+        document.addEventListener('mouseup', function () {
+            if (!isZoomed) return;
+            isDragging = false;
+            modalImg.style.cursor = "grab";
+            // dragMoved zostaje true jeśli był ruch
+        });
+    }
+
+    // Touch events na mobile NIE obsługują zoomowania/dragowania
 
     // Reset zoom on image change or modal close
     function showModalImage(idx) {
