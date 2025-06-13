@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // --- ZOOM & PAN LOGIC ---
-    // Dodaj wykrywanie urządzenia dotykowego
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     let isZoomed = false;
@@ -133,7 +132,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Touch events na mobile NIE obsługują zoomowania/dragowania
+    // Obsługa swipe na mobile do zmiany obrazów w modalu
+    if (isTouchDevice) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50; // px
+
+        modalImg.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }
+        });
+
+        modalImg.addEventListener('touchend', function(e) {
+            touchEndX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : 0;
+            touchEndY = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientY : 0;
+            const dx = touchEndX - touchStartX;
+            const dy = touchEndY - touchStartY;
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > minSwipeDistance) {
+                if (dx < 0) {
+                    // swipe left -> next image
+                    showModalImage(currentModalIndex + 1);
+                } else {
+                    // swipe right -> prev image
+                    showModalImage(currentModalIndex - 1);
+                }
+            }
+        });
+    }
 
     // Reset zoom on image change or modal close
     function showModalImage(idx) {
