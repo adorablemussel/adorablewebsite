@@ -22,6 +22,6 @@ My own website, showcasing things I do! <br>
   Check it out yourself:
 </p>
 <p align="center">
-  <a href="https://adorablemussel.github.io/adorablewebsite/pages/home.html">https://adorablemussel.github.io/adorablewebsite/pages/home.html</a>
+  <a href="https://www.adorablemussel.com.pl/pages/home.html">https://www.adorablemussel.com.pl</a>
 </p>
 <hr>
